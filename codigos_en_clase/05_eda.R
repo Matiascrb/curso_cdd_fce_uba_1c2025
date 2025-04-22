@@ -11,13 +11,13 @@
 # =============================================================================
 
 # Paquetes básicos de Tidyverse
-library(tidyverse)     # Para manipulación y visualización de datos
-library(MASS)          # Para el dataset de Boston
+library("tidyverse")     # Para manipulación y visualización de datos
+library("MASS")          # Para el dataset de Boston
 
 # Paquetes específicos para EDA
 library(DataExplorer)  # Para EDA automatizado
 library(GGally)        # Para gráficos multivariados
-library(corrplot)      # Para visualización de correlaciones
+library("corrplot")      # Para visualización de correlaciones
 library(skimr)         # Para estadísticas descriptivas mejoradas
 library(moments)       # Para calcular asimetría (skewness) y curtosis
 
@@ -30,7 +30,8 @@ library(cowplot)       # Alternativa para combinar gráficos
 # =============================================================================
 
 # Cargar el conjunto de datos de Boston
-data(Boston)
+data("Boston")
+library("Boston")
 
 # Convertir a tibble para una mejor visualización
 boston_tbl <- as_tibble(Boston)
@@ -178,7 +179,7 @@ ggplot(boston_tbl, aes(x = lstat, y = medv)) +
 # Examinar la relación entre 'rm' y 'medv'
 ggplot(boston_tbl, aes(x = rm, y = medv)) +
   geom_point(alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") + #https://r-statistics.co/Loess-Regression-With-R.html
+  geom_smooth(method = "loess", color = "blue") + #https://r-statistics.co/Loess-Regression-With-R.html
   labs(title = "Relación entre número de habitaciones y valor de viviendas",
        x = "Número promedio de habitaciones (rm)",
        y = "Valor mediano de viviendas en $1000 (medv)") +
